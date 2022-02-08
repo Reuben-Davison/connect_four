@@ -16,6 +16,12 @@ RSpec.describe Board do
   end
   
   
+  it "can read each div" do
+    board = Board.new
+    expect(board.divs).to be_a(Hash)
+    
+  end
+  
   
   
 end
