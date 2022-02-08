@@ -22,6 +22,11 @@ RSpec.describe Board do
     
   end
   
-  
+  it "can render a board" do
+    board = Board.new
+    # binding.pry
+    expect(board.render).to eq("ABCDEFG \n#{board.rows_hash["row6"]}")
+    
+  end
   
 end
