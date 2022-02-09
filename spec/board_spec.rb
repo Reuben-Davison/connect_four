@@ -1,6 +1,7 @@
 require "pry"
 require "rspec"
 require "./lib/board"
+
 RSpec.describe Board do
   describe '#iteration 1' do
     it "exists" do
@@ -24,7 +25,7 @@ RSpec.describe Board do
 
     it "can render a board" do
       board = Board.new
-  binding.pry 
+
       expect(board.render).to eq("A B C D E F G \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . .")
     end
   end
