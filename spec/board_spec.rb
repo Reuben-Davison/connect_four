@@ -25,8 +25,8 @@ RSpec.describe Board do
 
     it "can render a board" do
       board = Board.new
-
-      expect(board.render).to eq("A B C D E F G \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . .")
+binding.pry 
+      expect(board.render).to eq("A B C D E F G\n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . .\n")
     end
   end
 end
