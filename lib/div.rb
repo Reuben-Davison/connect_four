@@ -6,10 +6,15 @@ class Div
               :comp_token
 
   def initialize(token)
-    @token = "."
-    @ply1_token = "X"
-    @ply2_token = "O"
-    @comp_token = "O"
+    @token = ["."]
+    @ply1_token = ["X"]
+    @ply2_token = ["O"]
+    @comp_token = ["O"]
   end
 
+  def empty?
+    if @token == ["."]
+      true
+    end
+  end
 end
