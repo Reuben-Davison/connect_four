@@ -3,6 +3,7 @@ require "rspec"
 require "./lib/player"
 require "./lib/div"
 require "./lib/board"
+require "./lib/turn"
 
 RSpec.describe Turn do
 
@@ -15,7 +16,19 @@ RSpec.describe Turn do
       expect(turn1.who_is_playing).to eq(player1)
     end
     
-    it "changes the board based on col_selection" do
+    
+    it "test input to input_to_integer " do
+      player1 = Player.new("Ralph")
+      turn1 = Turn.new("g", player1)
+      # col_selection = "b"
+      # binding.pry
+      turn1.input_to_integer(turn1.col_selection)
+      expect(turn1.column).to eq(7)
+      
+    end
+    
+    
+    xit "changes the board based on col_selection" do
       player1 = Player.new("Ralph")
       turn1 = Turn.new("b", player1)
       
