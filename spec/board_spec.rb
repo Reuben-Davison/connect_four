@@ -19,13 +19,16 @@ RSpec.describe Board do
 
     it "can read each div" do
       board = Board.new
-
+      div1 = Div.new(".")
+      
       expect(board.divs).to be_a(Hash)
+      expect(board.div1).to be(".")
     end
 
     it "can render a board" do
       board = Board.new
-binding.pry 
+      div1 = Div.new(".")
+# binding.pry
       expect(board.render).to eq("A B C D E F G\n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . .\n")
     end
   end
