@@ -23,16 +23,19 @@ RSpec.describe Turn do
       # col_selection = "b"
       # binding.pry
       turn1.input_to_integer(turn1.col_selection)
-      expect(turn1.column).to eq(7)
+      expect(turn1.column).to eq(6)
       
     end
     
     
-    xit "changes the board based on col_selection" do
+    it "changes the board based on col_selection" do
       player1 = Player.new("Ralph")
       turn1 = Turn.new("b", player1)
+      board1 = Board.new
+      turn1.input_to_integer(turn1.col_selection)
+      turn1.place_token(turn1.column, turn1.who_is_playing)
       
-      expect(rows_hash[0][1][0]).to eq ("X")
+      expect(board1.rows_hash[0][1][0]).to eq ("X")
     end
   
 end 

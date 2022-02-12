@@ -1,34 +1,40 @@
+require 'pry'
+require './lib/board'
+require './lib/player'
+require "./lib/div"
+
 class Turn 
   attr_reader :col_selection, :who_is_playing, :column
   
   
-  def initialize(col_selection, who_is_playing)
+  def initialize(col_selection, who_is_playing = Player.new, board = Board.new)
     @col_selection = col_selection
     @who_is_playing = who_is_playing
-    @column = 0
+    @column = nil
+    @board = board
   end
 
 
 
 
   def input_to_integer(col_selection)
-    @column = 0
+    @column = nil
     col_selection.upcase!
   
     if col_selection == "A" 
-      @column = 1
+      @column = 0
     elsif col_selection == "B" 
-      @column = 2
+      @column = 1
     elsif col_selection == "C"
-      @column = 3
+      @column = 2
     elsif col_selection == "D"
-      @column = 4
+      @column = 3
     elsif col_selection == "E"
-      @column = 5
+      @column = 4
     elsif col_selection == "F"
-      @column = 6
+      @column = 5
     elsif col_selection == "G"
-      @column = 7
+      @column = 6
     else 
       print "Please play the game right"
     end
@@ -36,19 +42,20 @@ class Turn
   end   
   
   
+  def flip_board
+    @board.board_array.reverse
+    
+  end
   
-  
-  # 
-  # def place_token(column, turn_owner)
-  # 
-  # 
-  #   until div.empty == true
-  #   row_number = 0
-  #   rows_hash.reverse[row_number]
-  #     if div.empty == true
-  #       div.token = who_is_playing.token
-  #     else
-  #       row_number += 1
+  def place_token(column, who_is_playing)
+    row_number = 0
+
+      until flip_board.rows_hash[row_number][column][0].empty? == true
+        row_number += 1
+      end 
+      @board.rows_hash[row_number][column][0] = who_is_playing.token
+   
+  end
   # 
   # 
   # 
