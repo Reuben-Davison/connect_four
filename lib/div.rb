@@ -18,9 +18,8 @@ class Div
   end
 
   def render
-    if empty?
-      @token = "."
-    end
+    token
   end
+  #is this redundant because we have token = token so we could just call  token
   #needs a render method to  reveal if  token should  be . X or O
 end

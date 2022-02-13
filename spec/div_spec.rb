@@ -25,13 +25,8 @@ RSpec.describe Div do
     end
 
     it 'can read each divs location' do
-
+# binding.pry  
       expect(div1.location).to eq('A1')
-    end
-
-    it 'can render each div correctly' do
-
-      expect(div1.render).to eq('.')
     end
   end
 end
