@@ -1,5 +1,5 @@
 # Connect-4
-
+![Connect Four Board](/pictures/connect4.jpeg)
 Welcome to our version of the Connect-4 project. We appreciate you taking the time to enjoy our game.
 People have said that our game is
 > Easy to learn
