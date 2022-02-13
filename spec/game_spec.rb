@@ -9,7 +9,7 @@ RSpec.describe Game do
   let(:new_game) {Game.new}
   context 'game branch' do
     it 'exists' do
-
+# binding.pry 
       expect(new_game).to be_a(Game)
     end
   end

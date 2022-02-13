@@ -1,9 +1,12 @@
-require "pry"
-require "rspec"
-require "./lib/board"
+require 'pry'
+require 'rspec'
+require './lib/board'
+require './lib/div'
+require './lib/player'
 
 RSpec.describe Board do
   let(:board) {Board.new}
+  let(:player1) {Player.new("John")}
   describe '#iteration 1' do
     it "exists" do
 
@@ -29,7 +32,7 @@ RSpec.describe Board do
     end
 
     it 'can change tokens base on placement' do
-
+      binding.pry
     end
   end
 end
