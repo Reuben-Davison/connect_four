@@ -32,7 +32,6 @@ RSpec.describe Board do
     end
 
     it 'can change tokens base on placement' do
-      binding.pry
     end
   end
 end

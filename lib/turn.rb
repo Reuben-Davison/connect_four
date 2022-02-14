@@ -14,7 +14,10 @@ class Turn
     @board = board
   end
 
-
+  def col_selection
+    gets.chomp
+    
+  end
 
 
   def input_to_integer(col_selection)
@@ -37,6 +40,8 @@ class Turn
       @column = 6
     else 
       print "Please play the game right"
+      if @board.board_array[0][@column][0].empty? == false
+        print "Pick an empty column"
     end
     @column
   end   

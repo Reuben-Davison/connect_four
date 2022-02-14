@@ -1,3 +1,4 @@
+
 class Board
   attr_reader :rows, :columns, :divs, :render
 
@@ -30,4 +31,5 @@ class Board
     puts board
     board
   end
+
 end
