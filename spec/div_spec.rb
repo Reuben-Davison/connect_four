@@ -25,7 +25,7 @@ RSpec.describe Div do
     end
 
     it 'can read each divs location' do
-# binding.pry  
+ # binding.pry  
       expect(div1.location).to eq('A1')
     end
   end
