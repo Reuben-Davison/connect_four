@@ -14,13 +14,6 @@ class Div
       false
     end
   end
+# I feel like this needs to go under the turn class
 
-  def place_token(column, turn_owner)
-    if turn_owner == player1 && token == "."
-      token == "X"
-    elsif turn_owner == computer && token == "."
-      token == "0"
-    else
-    end
-  end
 end
