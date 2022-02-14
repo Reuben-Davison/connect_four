@@ -17,10 +17,7 @@ class Div
     end
     #should we say token == (player1) or token == (computer), then  that can be used in  the render method.
   end
+# I feel like this needs to go under the turn class
 
-  # def render
-  #   token
-  # end
-  #is this redundant because we have token = token so we could just call  token
-  #needs a render method to  reveal if  token should  be . X or O
+
 end
