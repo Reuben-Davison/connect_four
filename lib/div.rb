@@ -8,15 +8,15 @@ class Div
     @token = token
   end
 #the turns can  only go up to 42 before a draw. set each turn to a different div gets.chomp, and we can then tell what turn we are on as well.
-
-  def empty?
-    if token == ('.')
-      true
-    elsif token == ('X') || token == ('O')
-      false
-    end
-    #should we say token == (player1) or token == (computer), then  that can be used in  the render method.
-  end
+  # 
+  # def empty?
+  #   if token == ('.')
+  #     true
+  #   elsif token == ('X') || token == ('O')
+  #     false
+  #   end
+  #   #should we say token == (player1) or token == (computer), then  that can be used in  the render method.
+  # end
 # I feel like this needs to go under the turn class
 
 

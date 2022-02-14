@@ -10,7 +10,7 @@ class Turn
     @col_selection = col_selection
     @who_is_playing = who_is_playing
     @div_to_change = nil
-    @turn_count = 0
+    @turn_count = 2
     @board = board
   end
 
@@ -72,16 +72,21 @@ class Turn
     div_to_change
   end
 
-  def place_token(div_to_change, turn_count)
-    @turn_count += 1
-    # div.include?(div_to_change)
+  def place_token(div_to_change)
     if turn_count.odd?
-      token = "X"
+      binding.pry
+      @board.divs[div_to_change] = "X"
+      # token = "X"
     else
-      token = "O"
+      @board.divs[div_to_change]["token"] = "0"
     end
+    
+    # board.divs{input_to_integer,div_to_change} = 
+    
 
-    @divs[div_to_change].token
+    # @divs[div_to_change].token
+    
+    
 
 #take the first value from a specific array, and then change it, and remove the location from  the original array
   end
