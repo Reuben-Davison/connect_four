@@ -31,8 +31,8 @@ RSpec.describe Board do
       expect(board.render).to eq("A B C D E F G \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . .\n")
     end
 
-    it 'can change tokens base on placement' do
-      binding.pry
-    end
+#     it 'can change tokens base on placement' do
+# # binding.pry
+#     end
   end
 end

@@ -44,6 +44,18 @@ class Game
       The game will end when either the player or computer has 4 in a row!
       GOOD LUCK! Here is the board you will be playing on.'
       puts directions
+      puts "Make your selection now!"
       @game_board.render
+      #turn indicator =======turn 1======
+      #column selection
+      #render board with new token
+      #until turn.count == 7 check for winner
+      #increase turn counter
+
+      #turn indicator =====turn2======
+      #column selection
+      #render board
+      #check for winner
+      #next player
     end
 end

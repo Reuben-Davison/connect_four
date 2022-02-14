@@ -1,5 +1,5 @@
 class Board
-  attr_reader :rows, :columns, :divs, :render
+  attr_reader :rows, :columns, :divs, :render, :a_array, :b_array, :c_array, :d_array, :e_array, :f_array, :g_array
 
   def initialize(rows = 6, columns = 7)
     @rows = rows
@@ -14,15 +14,13 @@ class Board
           @divs["#{letter}#{number.to_s}"] = Div.new("#{letter}#{number.to_s}")
         end
       end
-  end
-
-  def place_token(column, turn_owner)
-    if turn_owner == player1 && divs.token == "."
-      divs[column].token == "X"
-    elsif turn_owner == computer && divs.token == "."
-      divs[column].token == "0"
-    else
-    end
+    @a_array = ["A1", "A2", "A3", "A4", "A5", "A6"]
+    @b_array = ["B1", "B2", "B3", "B4", "B5", "B6"]
+    @c_array = ["C1", "C2", "C3", "C4", "C5", "C6"]
+    @d_array = ["D1", "D2", "D3", "D4", "D5", "D6"]
+    @e_array = ["E1", "E2", "E3", "E4", "E5", "E6"]
+    @f_array = ["F1", "F2", "F3", "F4", "F5", "F6"]
+    @g_array = ["G1", "G2", "G3", "G4", "G5", "G6"]
   end
 
   def render
