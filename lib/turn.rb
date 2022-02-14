@@ -18,53 +18,56 @@ class Turn
     @div_to_change = nil
     col_selection.upcase!
     if col_selection == "A"
-      if a_array == []
-        puts "That row is full, try again!"
+      if @board.a_array.count == 0
+        return "That row is full, try again!"
       else
-        @div_to_change = a_array[0]
+        @div_to_change = @board.a_array[0]
+        @board.a_array.shift
       end
     elsif col_selection == "B"
-      if b_array.count == 0
-        puts "That row is full, try again!"
+      if @board.b_array.count == 0
+        return "That row is full, try again!"
       else
-      @div_to_change = b_array[0]
+        @div_to_change = @board.b_array[0]
+        @board.b_array.shift
       end
     elsif col_selection == "C"
-      if c_array.count == 0
-        puts "That row is full, try again!"
+      if @board.c_array.count == 0
+        return "That row is full, try again!"
       else
-      @div_to_change = c_array[0]
-     end
+        @div_to_change = @board.c_array[0]
+        @board.c_array.shift
+      end
     elsif col_selection == "D"
-      if d_array.count == 0
-        puts "That row is full, try again!"
+      if @board.d_array.count == 0
+        return "That row is full, try again!"
       else
-      @div_to_change = d_array[0]
+        @div_to_change = @board.d_array[0]
+        @board.d_array.shift
       end
     elsif col_selection == "E"
-      if e_array.count == 0
-        puts "That row is full, try again!"
+      if @board.e_array.count == 0
+        return "That row is full, try again!"
       else
-      @div_to_change = e_array[0]
+        @div_to_change = @board.e_array[0]
+        @board.e_array.shift
       end
     elsif col_selection == "F"
-      if f_array.count == 0
-        puts "That row is full, try again!"
+      if @board.f_array.count == 0
+        return "That row is full, try again!"
       else
-      @div_to_change = f_array[0]
+        @div_to_change = @board.f_array[0]
+        @board.f_array.shift
       end
     elsif col_selection == "G"
       if @board.g_array.count == 0
         return "That row is full, try again!"
       else
         @div_to_change = @board.g_array[0]
-        # board.g_array(div_to_change)[]=
         @board.g_array.shift
       end
     else
-      print "Please play the game right"
-      if @board.board_array[0][@column][0].empty? == false
-        print "Pick an empty column"
+      return "Please play the game right" 
     end
     div_to_change
   end

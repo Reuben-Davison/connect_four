@@ -40,7 +40,7 @@ RSpec.describe Turn do
       expect(turn7.input_to_integer("G")).to eq("That row is full, try again!")
     end
 
-    it "changes the board based on col_selection" do
+    xit "changes the board based on col_selection" do
       player1 = Player.new("Ralph")
       turn1 = Turn.new("b", player1)
       board = Board.new
@@ -48,6 +48,13 @@ RSpec.describe Turn do
       turn1.place_token(turn1.column, turn1.who_is_playing)
 
       expect(board.rows_hash[0][1][0]).to eq ("X")
+    end
+    
+    it "can see if input is invalid" do
+      player1 = Player.new("Ralph")
+      turn1 = Turn.new("i", player1)
+      board = Board.new
+      expect(turn1.input_to_integer(turn1.col_selection)).to eq("Please play the game right")
     end
 
     xit 'can list the elements in each column' do
