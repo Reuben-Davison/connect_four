@@ -2,6 +2,7 @@ require 'pry'
 require './lib/board'
 require './lib/player'
 require "./lib/div"
+require "./lib/game"
 
 class Turn
   attr_reader :col_selection, :who_is_playing, :div_to_change, :turn_count, :board
@@ -12,7 +13,7 @@ class Turn
     @div_to_change = nil
     @turn_count = 1
     @board = board
-    @col_selection = gets.chomp
+
   end
 
   def input_to_integer(col_selection)
@@ -75,13 +76,13 @@ class Turn
 
   def place_token(div_to_change)
     if turn_count.odd?
-      binding.pry
+      # binding.pry
       @board.divs[div_to_change] = "X"
       # token = "X"
     else
-      @board.divs[div_to_change]["token"] = "0"
+      @board.divs[div_to_change] = "0"
     end
-    @turn_count +=1
+    game.game_turn +=1
 
   end
 
