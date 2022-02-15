@@ -2,6 +2,7 @@ require 'pry'
 require './lib/board'
 require './lib/player'
 require "./lib/div"
+require "./lib/game"
 
 class Turn
   attr_reader :col_selection, :who_is_playing, :div_to_change, :turn_count, :board
@@ -10,8 +11,9 @@ class Turn
     @col_selection = col_selection
     @who_is_playing = who_is_playing
     @div_to_change = nil
-    @turn_count = 0
+    @turn_count = 1
     @board = board
+
   end
 
   def input_to_integer(col_selection)
@@ -72,19 +74,16 @@ class Turn
     div_to_change
   end
 
-  def place_token(div_to_change, turn_count)
-    @turn_count += 1
-    # div.include?(div_to_change)
+  def place_token(div_to_change)
     if turn_count.odd?
-      token = "X"
+      # binding.pry
+      @board.divs[div_to_change] = "X"
+      # token = "X"
     else
-      token = "O"
+      @board.divs[div_to_change] = "0"
     end
+    game.game_turn +=1
 
-    @divs[div_to_change].token
-
-#take the first value from a specific array, and then change it, and remove the location from  the original array
   end
 
-  # def  winner method
 end
