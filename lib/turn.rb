@@ -1,4 +1,5 @@
-require 'pry'
+# require 'pry'
+require "rspec"
 require './lib/board'
 require './lib/player'
 require "./lib/div"
@@ -63,27 +64,38 @@ class Turn
       end
     elsif col_selection == "G"
       if @board.g_array.count == 0
-        return "That row is full, try again!"
+        print "That row is full, try again!"
       else
         @div_to_change = @board.g_array[0]
         @board.g_array.shift
       end
     else
-      return "Please play the game right" 
+      puts "Please play the game right" 
     end
     div_to_change
   end
 
   def place_token(div_to_change)
-    if turn_count.odd?
-      # binding.pry
-      @board.divs[div_to_change] = "X"
+    @board.divs[div_to_change] = @game.current_token
+    
+    
+    
+    
+    
+    
+    
+    # if turn_count.odd?
+    #   # binding.pry
       # token = "X"
-    else
-      @board.divs[div_to_change] = "0"
-    end
-    game.game_turn +=1
-
+    # else
+    #   @board.divs[div_to_change] = "0"
+    # end
+    # game.game_turn +=1
+    # next_token = []
+    #   21.times do
+    #     next_token << ["X", "0"]
+    #   end
+    # next_token.join(", ")
   end
 
 end
