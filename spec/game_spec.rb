@@ -13,7 +13,7 @@ RSpec.describe Game do
       expect(new_game).to be_a(Game)
     end
     
-    it "can read user board input" do
+    xit "can read user board input" do
       play_input = "d"
       expect(new_game.play_input).to eq("a".."g")
       
