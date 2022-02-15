@@ -10,8 +10,9 @@ class Turn
     @col_selection = col_selection
     @who_is_playing = who_is_playing
     @div_to_change = nil
-    @turn_count = 2
+    @turn_count = 1
     @board = board
+    @col_selection = gets.chomp
   end
 
   def input_to_integer(col_selection)
@@ -80,16 +81,8 @@ class Turn
     else
       @board.divs[div_to_change]["token"] = "0"
     end
-    
-    # board.divs{input_to_integer,div_to_change} = 
-    
+    @turn_count +=1
 
-    # @divs[div_to_change].token
-    
-    
-
-#take the first value from a specific array, and then change it, and remove the location from  the original array
   end
 
-  # def  winner method
 end

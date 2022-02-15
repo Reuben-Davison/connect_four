@@ -12,7 +12,8 @@ class Board
     @numbers.to_a
       @letters.each do |letter|
         @numbers.each do |number|
-          @divs["#{letter}#{number.to_s}"] = Div.new("#{letter}#{number.to_s}")
+          @divs["#{letter}#{number.to_s}"] = "." 
+          # Div.new("#{letter}#{number.to_s}")
         end
       end
     @a_array = ["A1", "A2", "A3", "A4", "A5", "A6"]
@@ -25,7 +26,7 @@ class Board
   end
 
   def render
-    board = "A B C D E F G \n#{@divs["A6"].token} #{@divs["B6"].token} #{@divs["C6"].token} #{@divs["D6"].token} #{@divs["E6"].token} #{@divs["F6"].token} #{@divs["G6"].token} \n#{@divs["A5"].token} #{@divs["B5"].token} #{@divs["C5"].token} #{@divs["D5"].token} #{@divs["E5"].token} #{@divs["F5"].token} #{@divs["G5"].token} \n#{@divs["A4"].token} #{@divs["B4"].token} #{@divs["C4"].token} #{@divs["D4"].token} #{@divs["E4"].token} #{@divs["F4"].token} #{@divs["G4"].token} \n#{@divs["A3"].token} #{@divs["B3"].token} #{@divs["C3"].token} #{@divs["D3"].token} #{@divs["E3"].token} #{@divs["F3"].token} #{@divs["G3"].token} \n#{@divs["A2"].token} #{@divs["B2"].token} #{@divs["C2"].token} #{@divs["D2"].token} #{@divs["E2"].token} #{@divs["F2"].token} #{@divs["G2"].token} \n#{@divs["A1"].token} #{@divs["B1"].token} #{@divs["C1"].token} #{@divs["D1"].token} #{@divs["E1"].token} #{@divs["F1"].token} #{@divs["G1"].token}\n"
+    board = "A B C D E F G \n#{@divs["A6"]} #{@divs["B6"]} #{@divs["C6"]} #{@divs["D6"]} #{@divs["E6"]} #{@divs["F6"]} #{@divs["G6"]} \n#{@divs["A5"]} #{@divs["B5"]} #{@divs["C5"]} #{@divs["D5"]} #{@divs["E5"]} #{@divs["F5"]} #{@divs["G5"]} \n#{@divs["A4"]} #{@divs["B4"]} #{@divs["C4"]} #{@divs["D4"]} #{@divs["E4"]} #{@divs["F4"]} #{@divs["G4"]} \n#{@divs["A3"]} #{@divs["B3"]} #{@divs["C3"]} #{@divs["D3"]} #{@divs["E3"]} #{@divs["F3"]} #{@divs["G3"]} \n#{@divs["A2"]} #{@divs["B2"]} #{@divs["C2"]} #{@divs["D2"]} #{@divs["E2"]} #{@divs["F2"]} #{@divs["G2"]} \n#{@divs["A1"]} #{@divs["B1"]} #{@divs["C1"]} #{@divs["D1"]} #{@divs["E1"]} #{@divs["F1"]} #{@divs["G1"]}\n"
     puts board
     board
   end

@@ -1,7 +1,8 @@
+require "./lib/turn.rb"
 class Game
   def initialize
     @game_board = Board.new
-    @turn = 1
+    
   end
 
   def main_menu
@@ -44,9 +45,18 @@ class Game
       The game will end when either the player or computer has 4 in a row!
       GOOD LUCK! Here is the board you will be playing on.'
       puts directions
-      puts "Make your selection now!"
-      @game_board.render
-      #turn indicator =======turn 1======
+      loop do
+        puts "===Turn #{@turn.turn_count}==="
+        # binding.pry
+        @game_board.render
+        puts "Make your selection now!"
+        # input = gets.chomp
+        # turn = Turn.new(col_selection, @game_board) 
+        # turn.input_to_integer(col_selection)
+        # turn.place_token(div_to_change)
+        # @game_board.render
+        # 
+      end
       #column selection
       #render board with new token
       #until turn.count == 7 check for winner
@@ -57,5 +67,6 @@ class Game
       #render board
       #check for winner
       #next player
+  
     end
 end

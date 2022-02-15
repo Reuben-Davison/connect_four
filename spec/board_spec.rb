@@ -25,8 +25,7 @@ RSpec.describe Board do
     end
 
     it "can render a board" do
-      div1 = Div.new(".")
-      div2 = Div.new(".")
+      
 
       expect(board.render).to eq("A B C D E F G \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . . \n. . . . . . .\n")
     end
