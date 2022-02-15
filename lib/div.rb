@@ -18,6 +18,10 @@
   #   #should we say token == (player1) or token == (computer), then  that can be used in  the render method.
   # end
 # # I feel like this needs to go under the turn class
-# 
+ next_token = []
+  21.times do
+    next_token << ["X", "0"]
+  end
+next_token.join(", ")
 # 
 # end

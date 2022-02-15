@@ -1,9 +1,14 @@
 require "./lib/turn.rb"
 class Game
-  attr_accessor :game_turn
+  attr_accessor :next_tokens
+  attr_reader :game_turn, :current_token, 
+  
+  
   def initialize
     @game_board = Board.new
     @game_turn = 1
+    @next_tokens = []
+  
   end
 
   def main_menu
@@ -36,6 +41,18 @@ class Game
         system "quit"
       end
   end
+  
+  def token_array
+    require "pry"; binding.pry
+      5.times do
+        @next_tokens.concat(["X", "0"])
+      end
+  end
+  
+  def current_token
+    @next_tokens.shift  
+  end
+  
     def begin_game
       #this method will go through systematically and call all of the turn and board methods
       # system "clear"
@@ -46,15 +63,21 @@ class Game
       The game will end when either the player or computer has 4 in a row!
       GOOD LUCK! Here is the board you will be playing on.'
       puts directions
-      turn = Turn.new(play_input, @game_board) 
+      token_array
       loop do
         puts "===Turn #{@game_turn}==="
-        # binding.pry
         @game_board.render
         puts "Make your selection now!"
         play_input = gets.chomp
-        turn.input_to_integer(turn.col_selection)
-        turn.place_token(turn.div_to_change)
+          turn = Turn.new(play_input, @game_board) 
+            turn.input_to_integer(turn.col_selection)
+            require "pry"; binding.pry
+            turn.place_token(turn.div_to_change)
+            
+            
+            
+            
+            
         # @game_board.render
          @game_turn += 1
       end
