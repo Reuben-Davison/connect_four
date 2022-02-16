@@ -1,7 +1,7 @@
 require "./lib/turn.rb"
 require 'pry'
 class Game
-  attr_reader :game_turn, :current_token, :comp_array
+  attr_reader :game_turn, :current_token, :comp_array, :game_board
 
   def initialize
     @game_board = Board.new
@@ -100,4 +100,33 @@ class Game
         @game_turn += 1
       end
     end
-  end
+    
+    
+    def v_winner?
+      l_hash = {"A"=>[], "B"=>[], "C"=>[], "D"=>[], "E"=>[], "F"=>[], "G"=>[]}
+      @game_board.divs.each do|key, value|
+         letter = (key.chop)
+          l_hash[letter] << value
+        end
+
+      l_hash.each do |key, value|
+        (value.join).include?("XXXX" || "0000")
+        return true
+      end 
+    end
+    
+    def h_winner?
+      n_hash = {"1"=>[], "2"=>[], "3"=>[], "4"=>[], "5"=>[], "6"=>[]}
+      @game_board.divs.each do|key, value|
+        number = key[-1] 
+        # require "pry"; binding.pry
+        n_hash[number] << value
+      n_hash.each do |key, value|
+        (value.join).include?("XXXX" || "0000")
+        return true
+      end 
+    end
+      
+      
+    end
+end
