@@ -1,7 +1,16 @@
 class Player
-  attr_reader :name, :token
-  def initialize(name)
-    @name = name
-    @token = "X"
+  attr_reader :token
+
+  def initialize(token)
+    @token = token
   end
-end 
+
+  # def token_to_use
+  #   binding.pry
+  #   if type == [:human]
+  #     @token = "X"
+  #   elsif type == [:computer]
+  #     @token = "O"
+  #   end
+  # end
+end
