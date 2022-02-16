@@ -1,7 +1,7 @@
 require "./lib/turn.rb"
 require 'pry'
 class Game
-  attr_reader :game_turn, :current_token, :comp_array
+  attr_reader :game_turn, :current_token, :comp_array, :game_board
 
   def initialize
     @game_board = Board.new
@@ -101,3 +101,16 @@ class Game
       end
     end
   end
+  
+  
+  
+  
+  
+  
+def winner?
+  
+end
+  
+  
+  
+  
