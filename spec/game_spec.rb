@@ -50,8 +50,20 @@ RSpec.describe Game do
       game.game_board.divs["B2"] = "X"
       game.game_board.divs["C3"] = "X"
       game.game_board.divs["D4"] = "X"
-      game.winner?
+      game.d_winner?
       expect(game.winner?).to eq(true)
+      
+    end
+    
+    it "test for a overall winner" do
+      game = Game.new
+      game.game_board
+      game.game_board.divs["A1"] = "X"
+      game.game_board.divs["B1"] = "X"
+      game.game_board.divs["C1"] = "X"
+      game.game_board.divs["D1"] = "X"
+      game.has_someone_won?
+      expect(game.has_someone_won?).to eq(true)
       
     end
   end
