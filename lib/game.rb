@@ -5,7 +5,7 @@ class Game
 
   def initialize
     @game_board = Board.new
-    @game_turn = 1
+    @game_turn = 0
     @comp_array = ["A", "B", "C", "D", "E", "F", "G"]
     #maxchoicesfor the computer
   end
@@ -57,52 +57,47 @@ class Game
       loop do
         if @game_turn > 42
           puts "===========DRAW==========="
-          puts "Thanks for playing! Would you like to play again?"
-          gets.chomp
-          if user_input == 'p'
-            begin_game
-          else
-            puts "Have a nice day!"
-          end
-          sleep(5)
-          break
+          puts "Thanks for playing! Have a great day!"
+          # gets.chomp
+          # if user_input == 'p'
+          #   begin_game
+          # else
+          #   puts "Have a nice day!"
+          # end
+          # sleep(5)
+          # break
         else
         end
         p "===Turn #{@game_turn}==="
         @game_board.render
         p "Make your selection now!"
-        play_input = gets.chomp
+        loop do
+          play_input = gets.chomp
           turn = Turn.new(play_input, @game_board, player1)
-          # turn.valid_input?(play_input)
-          until turn.valid_input?(play_input) == true
-            p "Please choose another column!"
+          if turn.valid_input?(play_input) == true
+            turn.input_to_integer(turn.col_selection)
+            turn.place_token(turn.div_to_change)
             break
+          elsif turn.valid_input?(play_input) == false
+            p "Please make a correct selection."
           end
-          turn.input_to_integer(turn.col_selection)
-          turn.place_token(turn.div_to_change)
+        end
         @game_turn += 1
         sleep(1)
         p "Sit back while the computer makes a choice!"
         sleep(1)
         p "===Turn #{@game_turn}==="
         @game_board.render
-        play_input = comp_array.sample
-          turn = Turn.new(play_input, @game_board, computer)
-          turn.valid_input?(play_input)
-            turn.input_to_integer(turn.col_selection)
-            turn.place_token(turn.div_to_change)
-         @game_turn += 1
+        loop do
+          play_input = comp_array.sample
+            turn = Turn.new(play_input, @game_board, computer)
+            if turn.valid_input?(play_input) == true
+              turn.input_to_integer(turn.col_selection)
+              turn.place_token(turn.div_to_change)
+              break
+            end
+        end
+        @game_turn += 1
       end
-      #column selection
-      #render board with new token
-      #until turn.count == 7 check for winner
-      #increase turn counter
-
-      #turn indicator =====turn2======
-      #column selection
-      #render board
-      #check for winner
-      #next player
-
     end
-end
+  end
