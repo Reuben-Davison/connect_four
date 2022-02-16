@@ -104,21 +104,17 @@ class Game
     
     def winner?
       arrays = {"A"=>[], "B"=>[], "C"=>[], "D"=>[], "E"=>[], "F"=>[], "G"=>[]}
-      letters = ["A", "B", "C", "D", "E", "F", "G"]
       @game_board.divs.each do|key, value|
-        if (key.chop) == letters.each do |letter|
+         letter = (key.chop)
           arrays[letter] << value
         end
-        end
-      
-        require "pry"; binding.pry
-      array.each do |key, value|
+
+        # require "pry"; binding.pry
+      arrays.each do |key, value|
         (value.join).include?("XXXX" || "0000")
         return true
-      
-      end
+      end 
     end
-    
-    
-    end     
+      
+      
 end
