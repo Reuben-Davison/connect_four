@@ -97,7 +97,7 @@ class Turn
       false
     elsif col_selection == "G" && @board.g_array.count == 0
       false
-    elsif col_selection == "A" || "B" || "C" || "D" || "E" || "F" || "G"
+    elsif col_selection == "A" || col_selection ==("B") || col_selection ==("C") || col_selection ==("D") || col_selection ==("E") || col_selection ==("F") || col_selection == ("G")
       true
     else
       false

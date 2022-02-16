@@ -68,9 +68,9 @@ class Game
           # break
         else
         end
-        p "===Turn #{@game_turn}==="
+        puts "===Turn #{@game_turn}==="
         @game_board.render
-        p "Make your selection now!"
+        puts "Make your selection now!"
         loop do
           play_input = gets.chomp
           turn = Turn.new(play_input, @game_board, player1)
@@ -79,14 +79,14 @@ class Game
             turn.place_token(turn.div_to_change)
             break
           elsif turn.valid_input?(play_input) == false
-            p "Please make a correct selection."
+            puts "Please make a correct selection."
           end
         end
         @game_turn += 1
         sleep(1)
-        p "Sit back while the computer makes a choice!"
+        puts "Sit back while the computer makes a choice!"
         sleep(1)
-        p "===Turn #{@game_turn}==="
+        puts "===Turn #{@game_turn}==="
         @game_board.render
         loop do
           play_input = comp_array.sample
@@ -100,8 +100,8 @@ class Game
         @game_turn += 1
       end
     end
-    
-    
+
+
     def v_winner?
       l_hash = {"A"=>[], "B"=>[], "C"=>[], "D"=>[], "E"=>[], "F"=>[], "G"=>[]}
       @game_board.divs.each do|key, value|
@@ -112,28 +112,28 @@ class Game
       l_hash.each do |key, value|
         (value.join).include?("XXXX" || "0000")
         return true
-      end 
+      end
     end
-    
+
     def h_winner?
       n_hash = {"1"=>[], "2"=>[], "3"=>[], "4"=>[], "5"=>[], "6"=>[]}
       @game_board.divs.each do|key, value|
-        number = key[-1] 
+        number = key[-1]
         # require "pry"; binding.pry
         n_hash[number] << value
       end
-      
+
       n_hash.each do |key, value|
         (value.join).include?("XXXX" || "0000")
         return true
-      end 
+      end
     end
-    
-  
+
+
     def d_winner?
-      
+
       @game_board.divs.each do|key, value|
-        l = key[0] 
+        l = key[0]
           if l == "A"
             key[0] = 0
           elsif l == "B"
@@ -148,25 +148,18 @@ class Game
             key[0] =5
           elsif l == "G"
             key[0] =6
-          end  
+          end
         # require "pry"; binding.pry
         n_hash[number] << value
       n_hash.each do |key, value|
         (value.join).include?("XXXX" || "0000")
         return true
-      end 
+      end
     end
-      
-      
     end
-    
-    
     def has_someone_won?
       if v_winner? == true || h_winner? == true
         true
       end
     end
-    
-    
-    
 end
