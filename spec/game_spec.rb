@@ -27,20 +27,20 @@ RSpec.describe Game do
       game.game_board.divs["A3"] = "X"
       game.game_board.divs["A4"] = "X"
       # require "pry"; binding.pry
-      game.winner?
-      expect(game.winner?).to eq(true)
+      game.v_winner?
+      expect(game.v_winner?).to eq(true)
       
       
     end
-    xit "test for a horizontal winner" do
+    it "test for a horizontal winner" do
       game = Game.new
       game.game_board
-      game["A1"] = "X"
-      game["B1"] = "X"
-      game["C1"] = "X"
-      game["D1"] = "X"
-      game.winner?
-      expect(game.winner?).to eq(true)
+      game.game_board.divs["A1"] = "X"
+      game.game_board.divs["B1"] = "X"
+      game.game_board.divs["C1"] = "X"
+      game.game_board.divs["D1"] = "X"
+      game.h_winner?
+      expect(game.h_winner?).to eq(true)
       
     end
     xit "test for a diagonal winner" do
