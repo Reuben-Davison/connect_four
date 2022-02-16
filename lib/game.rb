@@ -121,6 +121,36 @@ class Game
         number = key[-1] 
         # require "pry"; binding.pry
         n_hash[number] << value
+      end
+      
+      n_hash.each do |key, value|
+        (value.join).include?("XXXX" || "0000")
+        return true
+      end 
+    end
+    
+  
+    def d_winner?
+      
+      @game_board.divs.each do|key, value|
+        l = key[0] 
+          if l == "A"
+            key[0] = 0
+          elsif l == "B"
+            key[0] =1
+          elsif l == "C"
+            key[0] =2
+          elsif l == "D"
+            key[0] =3
+          elsif l == "E"
+            key[0] =4
+          elsif l == "F"
+            key[0] =5
+          elsif l == "G"
+            key[0] =6
+          end  
+        # require "pry"; binding.pry
+        n_hash[number] << value
       n_hash.each do |key, value|
         (value.join).include?("XXXX" || "0000")
         return true
@@ -129,4 +159,14 @@ class Game
       
       
     end
+    
+    
+    def has_someone_won?
+      if v_winner? == true || h_winner? == true
+        true
+      end
+    end
+    
+    
+    
 end
