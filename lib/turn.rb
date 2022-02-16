@@ -71,7 +71,7 @@ class Turn
         @board.g_array.shift
       end
     else
-      puts "Please play the game right"
+      # puts "Please play the game right, choose another column!"
     end
     div_to_change
   end
@@ -97,10 +97,10 @@ class Turn
       false
     elsif col_selection == "G" && @board.g_array.count == 0
       false
-    elsif col_selection != "A"|| "B" || "C" || "D" || "F" || "G"
-      false
-    else
+    elsif col_selection == "A" || "B" || "C" || "D" || "E" || "F" || "G"
       true
+    else
+      false
     end
   end
 end
