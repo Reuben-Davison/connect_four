@@ -27,20 +27,19 @@ class Game
     user_input = gets.chomp.downcase
 
     until ['p', 'q'].include?(user_input)
-      p 'Invalid entry. Try again'
+      puts 'Invalid entry. Try again'
       user_input = gets.chomp.downcase
     end
       if user_input == 'p'
-        p "Welcome to Connect-4!"
+        puts "Welcome to Connect-4!"
         sleep(1)
         begin_game
       elsif user_input == 'q'
-        p 'Have a nice day! Thanks for playing!'
+        puts 'Have a nice day! Thanks for playing!'
         sleep(3)
         system "quit"
       end
   end
-
 
     def begin_game
       player1 = Player.new("X")
@@ -58,15 +57,7 @@ class Game
         if @game_turn > 42
           puts "===========DRAW==========="
           puts "Thanks for playing! Have a great day!"
-          # gets.chomp
-          # if user_input == 'p'
-          #   begin_game
-          # else
-          #   puts "Have a nice day!"
-          # end
-          # sleep(5)
-          # break
-        else
+          break
         end
         puts "===Turn #{@game_turn}==="
         @game_board.render
@@ -77,6 +68,41 @@ class Game
           if turn.valid_input?(play_input) == true
             turn.input_to_integer(turn.col_selection)
             turn.place_token(turn.div_to_change)
+            if has_someone_won? == true
+              puts "######  #          #    #     # ####### ######
+#     # #         # #    #   #  #       #     #
+#     # #        #   #    # #   #       #     #
+######  #       #     #    #    #####   ######
+#       #       #######    #    #       #   #
+#       #       #     #    #    #       #    #
+#       ####### #     #    #    ####### #     #
+
+#     # ### #     #  #####
+#  #  #  #  ##    # #     #
+#  #  #  #  # #   # #
+#  #  #  #  #  #  #  #####
+#  #  #  #  #   # #       #
+#  #  #  #  #    ## #     #
+ ## ##  ### #     #  #####  "
+              puts "=============================="
+              puts " #####     #    #     # #######
+#     #   # #   ##   ## #
+#        #   #  # # # # #
+#  #### #     # #  #  # #####
+#     # ####### #     # #
+#     # #     # #     # #
+ #####  #     # #     # #######
+
+####### #     # ####### ######
+#     # #     # #       #     #
+#     # #     # #       #     #
+#     # #     # #####   ######
+#     #  #   #  #       #   #
+#     #   # #   #       #    #
+#######    #    ####### #     # "
+              sleep(5)
+              abort ("Run `ruby game_runner.rb` to play again!")
+            end
             break
           elsif turn.valid_input?(play_input) == false
             puts "Please make a correct selection."
@@ -94,10 +120,48 @@ class Game
             if turn.valid_input?(play_input) == true
               turn.input_to_integer(turn.col_selection)
               turn.place_token(turn.div_to_change)
+              if has_someone_won? == true
+                puts " #####  ####### #     # ######  #     # ####### ####### ######
+#     # #     # ##   ## #     # #     #    #    #       #     #
+#       #     # # # # # #     # #     #    #    #       #     #
+#       #     # #  #  # ######  #     #    #    #####   ######
+#       #     # #     # #       #     #    #    #       #   #
+#     # #     # #     # #       #     #    #    #       #    #
+ #####  ####### #     # #        #####     #    ####### #     #
+
+#     # ### #     #  #####
+#  #  #  #  ##    # #     #
+#  #  #  #  # #   # #
+#  #  #  #  #  #  #  #####
+#  #  #  #  #   # #       #
+#  #  #  #  #    ## #     #
+ ## ##  ### #     #  #####  "
+              puts "=============================="
+              puts "#####     #    #     # #######
+#     #   # #   ##   ## #
+#        #   #  # # # # #
+#  #### #     # #  #  # #####
+#     # ####### #     # #
+#     # #     # #     # #
+ #####  #     # #     # #######
+
+####### #     # ####### ######
+#     # #     # #       #     #
+#     # #     # #       #     #
+#     # #     # #####   ######
+#     #  #   #  #       #   #
+#     #   # #   #       #    #
+#######    #    ####### #     # "
+sleep(5)
+abort ("Run `ruby game_runner.rb` to play again!")
+              end
               break
             end
         end
         @game_turn += 1
+        # if has_someone_won? == true
+        #   puts "Someone has won!"
+        # end
       end
     end
 
@@ -110,8 +174,9 @@ class Game
         end
 
       l_hash.each do |key, value|
-        (value.join).include?("XXXX" || "0000")
-        return true
+        if l_hash[key].join.include?("XXXX" || "OOOO")
+          return true
+        end
       end
     end
 
@@ -119,19 +184,17 @@ class Game
       n_hash = {"1"=>[], "2"=>[], "3"=>[], "4"=>[], "5"=>[], "6"=>[]}
       @game_board.divs.each do|key, value|
         number = key[-1]
-        # require "pry"; binding.pry
         n_hash[number] << value
       end
 
       n_hash.each do |key, value|
-        (value.join).include?("XXXX" || "0000")
-        return true
+        if n_hash[key].join.include?("XXXX" || "OOOO")
+          return true
+        end
       end
     end
 
-
     def d_winner?
-
       @game_board.divs.each do|key, value|
         l = key[0]
           if l == "A"
@@ -149,7 +212,6 @@ class Game
           elsif l == "G"
             key[0] =6
           end
-        # require "pry"; binding.pry
         n_hash[number] << value
       n_hash.each do |key, value|
         (value.join).include?("XXXX" || "0000")
@@ -157,9 +219,12 @@ class Game
       end
     end
     end
+
     def has_someone_won?
-      if v_winner? == true || h_winner? == true
+      if v_winner? == true || h_winner? == true 
         true
+      else
+        false
       end
     end
 end

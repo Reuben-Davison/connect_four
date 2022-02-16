@@ -71,7 +71,6 @@ class Turn
         @board.g_array.shift
       end
     else
-      # puts "Please play the game right, choose another column!"
     end
     div_to_change
   end
