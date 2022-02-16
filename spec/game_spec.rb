@@ -8,7 +8,7 @@ require './lib/game'
 RSpec.describe Game do
   let(:new_game) {Game.new}
   context 'game branch' do
-    it 'exists' do
+    xit 'exists' do
 # binding.pry 
       expect(new_game).to be_a(Game)
     end
@@ -21,12 +21,12 @@ RSpec.describe Game do
     
     it "test for a vertical winner" do
       game = Game.new
-      require "pry"; binding.pry
       game.game_board
       game.game_board.divs["A1"] = "X"
       game.game_board.divs["A2"] = "X"
       game.game_board.divs["A3"] = "X"
       game.game_board.divs["A4"] = "X"
+      # require "pry"; binding.pry
       game.winner?
       expect(game.winner?).to eq(true)
       

@@ -100,17 +100,25 @@ class Game
         @game_turn += 1
       end
     end
-  end
-  
-  
-  
-  
-  
-  
-def winner?
-  
+    
+    
+    def winner?
+      arrays = {"A"=>[], "B"=>[], "C"=>[], "D"=>[], "E"=>[], "F"=>[], "G"=>[]}
+      letters = ["A", "B", "C", "D", "E", "F", "G"]
+      @game_board.divs.each do|key, value|
+        if (key.chop) == letters.each do |letter|
+          arrays[letter] << value
+        end
+        end
+      
+        require "pry"; binding.pry
+      array.each do |key, value|
+        (value.join).include?("XXXX" || "0000")
+        return true
+      
+      end
+    end
+    
+    
+    end     
 end
-  
-  
-  
-  
