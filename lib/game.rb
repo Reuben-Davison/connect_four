@@ -12,7 +12,7 @@ class Game
 
   def main_menu
     #this method will be used to setup a new game
-    # system 'clear'
+    system 'clear'
     puts ' #####  ####### #     # #     # #######  #####  #######       #
 #     # #     # ##    # ##    # #       #     #    #          #    #
 #       #     # # #   # # #   # #       #          #          #    #
@@ -194,11 +194,11 @@ abort ("Run `ruby game_runner.rb` to play again!")
       end
     end
 
-    
+
     def d_winner?
       big_hash = {"1"=>[], "2"=>[], "3"=>[], "4"=>[], "5"=>[], "6"=>[],
                   "7"=>[], "8"=>[], "9"=>[], "10"=>[], "11"=>[], "12"=>[]}
-                  
+
       diag = { 1 => ["D6", "C5", "B4", "A3"],
                2 => ["E6", "D5", "C4", "B3", "A2"],
                3 => ["F6", "E5", "D4", "C3", "B2", "A1"],
@@ -210,23 +210,23 @@ abort ("Run `ruby game_runner.rb` to play again!")
                9 => ["A6", "B5", "C4", "D3", "E2", "F1"],
                10 => ["B6", "C5", "D4", "E3", "F2", "G1"],
                11 => ["C6", "D5", "E4", "F3", "G2"],
-               12 => ["D6", "E5", "F4", "G3"]  
+               12 => ["D6", "E5", "F4", "G3"]
               }
-              
+
       @game_board.divs.each do |key, value|
         diag.each do |d_key, d_val|
           if d_val.include?(key)
             # require "pry"; binding.pry
             big_hash[d_key.to_s] << value
           end
-        end  
+        end
         big_hash.each do |key, value|
           if big_hash[key].join.include?("XXXX" || "OOOO")
             return true
           end
         end
       end
-    end  
+    end
 
 
 

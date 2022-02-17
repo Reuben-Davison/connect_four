@@ -19,9 +19,6 @@ Once you have cloned the repo, enter the directory you saved the repo to and ent
 
 This will bring you into the main menu of the Game.
 
-### Playing the Game
-
-
 ```
 ====Directory====
 
@@ -30,6 +27,7 @@ div.rb   : manages each cell on the board
 player.rb   : manages what players are in the game
 board.rb  : manages the rendering and tokens on our board
 game.rb   : manages the functionality of a game
+turn.rb : manages every turn taken
 
 ___Spec Files___
 
@@ -37,12 +35,14 @@ div_spec.rb  : manages the tests for our divs
 player_spec.rb  : manages the tests for our players
 board_spec.rb : manages the tests for our boards
 game_spec.rb : manages the tests for our games
+turn_spec.rb : manages tests for our turns  
 
 ___Additional Files___
 
 game_runner.rb : runs the game
 README.md            : explains what is in the file
 pictures             : holds the pictures used in the file
+backlog.rb : filled with ideas and methods not used
 
 ___Known Bugs/Errors___
 
