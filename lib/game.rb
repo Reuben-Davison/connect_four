@@ -194,34 +194,44 @@ abort ("Run `ruby game_runner.rb` to play again!")
       end
     end
 
+    
     def d_winner?
-      @game_board.divs.each do|key, value|
-        l = key[0]
-          if l == "A"
-            key[0] = 0
-          elsif l == "B"
-            key[0] =1
-          elsif l == "C"
-            key[0] =2
-          elsif l == "D"
-            key[0] =3
-          elsif l == "E"
-            key[0] =4
-          elsif l == "F"
-            key[0] =5
-          elsif l == "G"
-            key[0] =6
+      big_hash = {"1"=>[], "2"=>[], "3"=>[], "4"=>[], "5"=>[], "6"=>[],
+                  "7"=>[], "8"=>[], "9"=>[], "10"=>[], "11"=>[], "12"=>[]}
+                  
+      diag = { 1 => ["D6", "C5", "B4", "A3"],
+               2 => ["E6", "D5", "C4", "B3", "A2"],
+               3 => ["F6", "E5", "D4", "C3", "B2", "A1"],
+               4 => ["G6", "F5", "E4", "D3", "C2", "B1"],
+               5 => ["G5", "F4", "E3", "D2", "C1"],
+               6 => ["G4", "F3", "E2", "D1"],
+               7 => ["A4", "B3", "C2", "D1"],
+               8 => ["A5", "B4", "C3", "D2", "E1"],
+               9 => ["A6", "B5", "C4", "D3", "E2", "F1"],
+               10 => ["B6", "C5", "D4", "E3", "F2", "G1"],
+               11 => ["C6", "D5", "E4", "F3", "G2"],
+               12 => ["D6", "E5", "F4", "G3"]  
+              }
+              
+      @game_board.divs.each do |key, value|
+        diag.each do |d_key, d_val|
+          if d_val.include?(key)
+            # require "pry"; binding.pry
+            big_hash[d_key.to_s] << value
           end
-        n_hash[number] << value
-      n_hash.each do |key, value|
-        (value.join).include?("XXXX" || "0000")
-        return true
+        end  
+        big_hash.each do |key, value|
+          if big_hash[key].join.include?("XXXX" || "OOOO")
+            return true
+          end
+        end
       end
-    end
-    end
+    end  
+
+
 
     def has_someone_won?
-      if v_winner? == true || h_winner? == true 
+      if v_winner? == true || h_winner? == true  || d_winner? == true
         true
       else
         false
